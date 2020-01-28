@@ -12,11 +12,13 @@ namespace Task4
             string C;
             string D;
             string H;
+            string R;
             double a;
             double b;
             double c;
             double d;
             double h;
+            double r;
             double S;
             double P;
             double p;
@@ -162,6 +164,40 @@ namespace Task4
 
                 case "3":
                     Console.WriteLine("Вы выбрали круг.");
+                    Console.WriteLine("Выберите что будет рассчитано (введите одну из цифр, указанных ниже:");
+                    Console.WriteLine("1. Площадь");
+                    Console.WriteLine("2. Периметр\n\n");
+                    selection_method = Console.ReadLine();
+                    switch (selection_method)
+                    {
+                        case "1":
+                            Console.WriteLine("Вы выбрали расчет площади.\n");
+                            Console.Write("Введите значение радиуса круга: ");
+                            R = Console.ReadLine();
+                            if (double.TryParse(R, out r))
+                            {
+                                S = Math.PI * Math.Pow(r, 2);
+                                Console.WriteLine($"Площадь круга S = {S}");
+                            }
+                            else Console.WriteLine("Неверно введено значение радиуса круга.");
+                            break;
+
+                        case "2":
+                            Console.WriteLine("Вы выбрали расчет периметра.\n");
+                            Console.Write("Введите значение радиуса круга: ");
+                            R = Console.ReadLine();
+                            if (double.TryParse(R, out r))
+                            {
+                                P = 2 * Math.PI * r;
+                                Console.WriteLine($"Периметр круга P = {P}");
+                            }
+                            else Console.WriteLine("Неверно введено значение радиуса круга.");
+                            break;
+
+                        default:
+                            Console.WriteLine("Вы сделали неправильный выбор.");
+                            break;
+                    }
                     break;
 
                 default:
