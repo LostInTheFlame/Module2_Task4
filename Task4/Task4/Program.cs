@@ -4,207 +4,155 @@ namespace Task4
 {
     class Program
     {
+        static string shapeSelection;
+
         static void Main(string[] args)
         {
-            string selection_method;
-            string A;
-            string B;
-            string C;
-            string D;
-            string H;
-            string R;
-            double a;
-            double b;
-            double c;
-            double d;
-            double h;
-            double r;
-            double S;
-            double P;
-            double p;
             Console.WriteLine("Выберите фигуру для которой будет рассчитана площадь или периметр (введите одну из цифр, указанных ниже):");
             Console.WriteLine("1. Треугольник");
             Console.WriteLine("2. Четырехугольник");
             Console.WriteLine("3. Круг\n\n");
-            string selection_fig = Console.ReadLine();
+            shapeSelection = Console.ReadLine();
 
-            switch (selection_fig)
+            switch (shapeSelection)
             {
                 case "1":
-                    Console.WriteLine("Вы выбрали треугольник.\n\n");
-                    Console.WriteLine("Выберите что будет рассчитано (введите одну из цифр, указанных ниже:");
-                    Console.WriteLine("1. Площадь");
-                    Console.WriteLine("2. Периметр\n\n");
-                    selection_method = Console.ReadLine();
-
-                    switch (selection_method)
-                    {
-                        case "1":
-                            Console.WriteLine("Вы выбрали расчет площади.\n");
-                            Console.Write("Введите высоту треугольника: ");
-                            H = Console.ReadLine();
-                            if (double.TryParse(H, out h))
-                            {
-                                Console.Write("Введите длину основания треугольника: ");
-                                A = Console.ReadLine();
-                                if (double.TryParse(A, out a))
-                                {
-                                    S = a * h / 2;
-                                    Console.WriteLine($"Площадь треугольника S = {S}");
-                                }
-                                else Console.WriteLine("Неверно введено значение основания треугольника");
-                            }
-                            else Console.WriteLine("Невернно введено значение высоты треугольника");
-                            break;
-
-                        case "2":
-                            Console.WriteLine("Вы выбрали расчет периметра.\n");
-                            Console.Write("Введите длину стороны a: ");
-                            A = Console.ReadLine();
-                            if (double.TryParse(A, out a))
-                            {
-                                Console.Write("Введите длину стороны b: ");
-                                B = Console.ReadLine();
-                                if (double.TryParse(B, out b))
-                                {
-                                    Console.Write("Введите длину стороны c: ");
-                                    C = Console.ReadLine();
-                                    if (double.TryParse(C, out c))
-                                    {
-                                        P = a + b + c;
-                                        Console.WriteLine($"Периметр треугольника P = {P}");
-                                    }
-                                    else Console.WriteLine("Неверно введено значение длины стороны c.");
-                                }
-                                else Console.WriteLine("Неверно введено значение длины стороны b.");
-                            }
-                            else Console.WriteLine("Неверно введено значение стороны a.");
-                            break;
-
-                        default:
-                            Console.WriteLine("Вы сделали неправильный выбор.");
-                            break;
-                    }
+                    Console.WriteLine("Вы выбрали треугольник.");
+                    methodSelection();
                     break;
-
                 case "2":
-                    Console.WriteLine("Вы выбрали четырехугольник.\n\n");
-                    Console.WriteLine("Выберите что будет рассчитано (введите одну из цифр, указанных ниже:");
-                    Console.WriteLine("1. Площадь");
-                    Console.WriteLine("2. Периметр\n\n");
-                    selection_method = Console.ReadLine();
-                    switch (selection_method)
-                    {
-                        case "1":
-                            Console.WriteLine("Вы выбрали расчет площади.\n");
-                            Console.Write("Введите длину сторны a: ");
-                            A = Console.ReadLine();
-                            if (double.TryParse(A, out a))
-                            {
-                                Console.Write("Введите длину стороны b: ");
-                                B = Console.ReadLine();
-                                if (double.TryParse(B, out b))
-                                {
-                                    Console.Write("Введите длину стороны c: ");
-                                    C = Console.ReadLine();
-                                    if (double.TryParse(C, out c))
-                                    {
-                                        Console.Write("Введите длину стороны d: ");
-                                        D = Console.ReadLine();
-                                        if (double.TryParse(D, out d))
-                                        {
-                                            p = (a + b + c + d) / 2;
-                                            S = Math.Sqrt((p-a)*(p-b)*(p-c)*(p-d));
-                                            Console.WriteLine($"Площадь четырехугольника S = {S}");
-                                        }
-                                        else Console.WriteLine("Неверно введено значение стороны d.");
-                                    }
-                                    else Console.WriteLine("Неверно введено значение длины стороны c.");
-                                }
-                                else Console.WriteLine("Неверно введено значение длины стороны b.");
-                            }
-                            else Console.WriteLine("Неверно введено значение длины стороны a.");
-                            break;
-
-                        case "2":
-                            Console.WriteLine("Вы выбрали расчет периметра.\n");
-                            Console.Write("Введите длину сторны a: ");
-                            A = Console.ReadLine();
-                            if (double.TryParse(A, out a))
-                            {
-                                Console.Write("Введите длину стороны b: ");
-                                B = Console.ReadLine();
-                                if (double.TryParse(B, out b))
-                                {
-                                    Console.Write("Введите длину стороны c: ");
-                                    C = Console.ReadLine();
-                                    if (double.TryParse(C, out c))
-                                    {
-                                        Console.Write("Введите длину стороны d: ");
-                                        D = Console.ReadLine();
-                                        if (double.TryParse(D, out d))
-                                        {
-                                            P = a + b + c + d;
-                                            Console.WriteLine($"Периметр четырехугольника P: = {P}");
-                                        }
-                                        else Console.WriteLine("Неверно введено значение стороны d.");
-                                    }
-                                    else Console.WriteLine("Неверно введено значение длины стороны c.");
-                                }
-                                else Console.WriteLine("Неверно введено значение длины стороны b.");
-                            }
-                            else Console.WriteLine("Неверно введено значение длины стороны a.");
-                            break;
-
-                        default:
-                            Console.WriteLine("Вы сделали неправильный выбор.");
-                            break;
-                    }
+                    Console.WriteLine("Вы выбрали четырехугольник.");
+                    methodSelection();
                     break;
-
                 case "3":
                     Console.WriteLine("Вы выбрали круг.");
-                    Console.WriteLine("Выберите что будет рассчитано (введите одну из цифр, указанных ниже:");
-                    Console.WriteLine("1. Площадь");
-                    Console.WriteLine("2. Периметр\n\n");
-                    selection_method = Console.ReadLine();
-                    switch (selection_method)
-                    {
-                        case "1":
-                            Console.WriteLine("Вы выбрали расчет площади.\n");
-                            Console.Write("Введите значение радиуса круга: ");
-                            R = Console.ReadLine();
-                            if (double.TryParse(R, out r))
-                            {
-                                S = Math.PI * Math.Pow(r, 2);
-                                Console.WriteLine($"Площадь круга S = {S}");
-                            }
-                            else Console.WriteLine("Неверно введено значение радиуса круга.");
-                            break;
-
-                        case "2":
-                            Console.WriteLine("Вы выбрали расчет периметра.\n");
-                            Console.Write("Введите значение радиуса круга: ");
-                            R = Console.ReadLine();
-                            if (double.TryParse(R, out r))
-                            {
-                                P = 2 * Math.PI * r;
-                                Console.WriteLine($"Периметр круга P = {P}");
-                            }
-                            else Console.WriteLine("Неверно введено значение радиуса круга.");
-                            break;
-
-                        default:
-                            Console.WriteLine("Вы сделали неправильный выбор.");
-                            break;
-                    }
+                    methodSelection();
                     break;
-
                 default:
                     Console.WriteLine("Вы сделали неправильный выбор.");
                     break;
             }
             Console.ReadKey(true);
+        }
+
+        static void methodSelection()
+        {
+            Console.WriteLine("\n\nВыберите что будет рассчитано (введите одну из цифр, указанных ниже:");
+            Console.WriteLine("1. Площадь");
+            Console.WriteLine("2. Периметр\n\n");
+            string method = Console.ReadLine();
+
+            switch (method)
+            {
+                case "1":
+                    Console.WriteLine("Вы выбрали расчет площади.\n\n");
+                    area();
+                    break;
+                case "2":
+                    Console.WriteLine("Вы выбрали расчет периметра.\n\n");
+                    perimeter();
+                    break;
+                default:
+                    Console.WriteLine("Вы сделали неправильный выбор. ");
+                    break;
+            }
+        }
+
+        static void area()
+        {
+            double S;
+            switch (shapeSelection)
+            {
+                case "1":
+                    Console.WriteLine("Введите высоту и длину основания треугольника: ");
+
+                    if (double.TryParse(Console.ReadLine(), out double height) && double.TryParse(Console.ReadLine(), out double baseLength) && height > 0 && baseLength > 0)
+                    {
+                        S = baseLength * height / 2;
+                        Console.WriteLine($"Площадь треугольника S = {S}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ошибка при вводе значений.");
+                    }
+                    break;
+                case "2":
+                    Console.WriteLine("Введите длины сторон четырехугольника: ");
+
+                    if (double.TryParse(Console.ReadLine(), out double a) && double.TryParse(Console.ReadLine(), out double b) && double.TryParse(Console.ReadLine(), out double c) && double.TryParse(Console.ReadLine(), out double d) && a > 0 && b > 0 && c > 0 && d > 0)
+                    {
+                        double semiperimeter = (a + b + c + d) / 2;
+                        S = Math.Sqrt((semiperimeter - a) * (semiperimeter - b) * (semiperimeter - c) * (semiperimeter - d));
+                        Console.WriteLine($"Площадь четырехугольника S = {S}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ошибка при вводе значений.");
+                    }
+                    break;
+                case "3":
+                    Console.WriteLine("Введите значение радиуса круга: ");
+
+                    if (double.TryParse(Console.ReadLine(), out double R) && R > 0)
+                    {
+                        S = Math.PI * Math.Pow(R, 2);
+                        Console.WriteLine($"Площадь круга S = {S}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ошибка при вводе значения.");
+                    }
+                    break;
+            }
+        }
+
+        static void perimeter()
+        {
+            double P;
+            double a;
+            double b;
+            double c;
+            switch (shapeSelection)
+            {
+                case "1":
+                    Console.WriteLine("Введите длины сторон треугольника: ");
+
+                    if (double.TryParse(Console.ReadLine(), out a) && double.TryParse(Console.ReadLine(), out b) && double.TryParse(Console.ReadLine(), out c) && a > 0 && b > 0 && c > 0)
+                    {
+                        P = a + b + c;
+                        Console.WriteLine($"Периметр треугольника P = {P}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ошибка при вводе значения.");
+                    }
+                    break;
+                case "2":
+                    Console.WriteLine("Введите длины сторон четырехугольника: ");
+                    if (double.TryParse(Console.ReadLine(), out a) && double.TryParse(Console.ReadLine(), out b) && double.TryParse(Console.ReadLine(), out c) && double.TryParse(Console.ReadLine(), out double d) && a > 0 && b > 0 && c > 0 && d > 0)
+                    {
+                        P = a + b + c + d;
+                        Console.WriteLine($"Периметр четырехугольника P: = {P}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ошибка при вводе значения.");
+                    }
+                    break;
+                case "3":
+                    Console.Write("Введите значение радиуса круга: ");
+                    if (double.TryParse(Console.ReadLine(), out double R) && R > 0)
+                    {
+                        P = 2 * Math.PI * R;
+                        Console.WriteLine($"Периметр круга P = {P}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ошибка при вводе значения.");
+                    }
+                    break;
+            }
+
         }
     }
 }
